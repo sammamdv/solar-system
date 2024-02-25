@@ -10,8 +10,10 @@ on:
 env:
     MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
     MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
-    MONGO_PASSWORD: ${{ vars.MONGO_PASSWORD }}
+    MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
 
+
+>>>>>>> 16c18e9fc32968ecc7a9bb7eed16fb6e21fa1ee9
     
 jobs:
     unit-testing:
@@ -21,10 +23,11 @@ jobs:
         - name: Checkout Repository
           uses: actions/checkout@v4
 
-        - name: Setup NodeJS Version
-          uses: actions/setup-node@v4
+
+        - name: Setup NodeJS Version - 18
+          uses: actions/setup-node@v3
           with:
-            node-version: 20
+            node-version: 18
     
         - name: Install Dependencies
           run: npm install
@@ -33,7 +36,7 @@ jobs:
           run: npm test
           
         - name: Archive Test Result
-          uses: actions/upload-artifact@v4
+          uses: actions/upload-artifact@v3
           with:
             name: Mocha-Test-Result
             path: test-results.xml
