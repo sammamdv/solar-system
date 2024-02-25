@@ -12,8 +12,6 @@ env:
     MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
     MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
 
-
->>>>>>> 16c18e9fc32968ecc7a9bb7eed16fb6e21fa1ee9
     
 jobs:
     unit-testing:
